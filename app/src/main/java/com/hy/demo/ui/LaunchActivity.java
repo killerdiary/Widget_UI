@@ -1,12 +1,12 @@
 package com.hy.demo.ui;
 
-import android.view.View;
 import android.widget.TextView;
 
-import com.hy.demo.app.BaseActivity;
+import com.hy.demo.BuildConfig;
 import com.hy.demo.R;
+import com.hy.demo.app.BaseActivity;
 import com.hy.frame.util.TimerUtil;
-import com.hy.iframe.auto.BuildConfig;
+
 
 /**
  * title 无

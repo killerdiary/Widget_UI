@@ -3,7 +3,8 @@ package com.hy.frame.util;
 import android.content.Context;
 import android.content.res.TypedArray;
 
-import com.hy.iframe.auto.R;
+import com.hy.frame.widget.ui.R;
+
 
 /**
  * title AutoUtil
