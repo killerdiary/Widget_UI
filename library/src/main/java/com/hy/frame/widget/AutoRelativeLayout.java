@@ -44,14 +44,14 @@ public class AutoRelativeLayout extends RelativeLayout implements IAutoDesign {
 
     @SuppressLint("CustomViewStyleable")
     private void initAttrs(Context context, AttributeSet attrs, int defStyleAttr) {
-        TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.AutoFrameLayout, defStyleAttr, 0);
-        this.designScreenWidth = a.getDimensionPixelSize(R.styleable.AutoFrameLayout_designScreenWidth, AutoUtil.getDesignScreenWidth(context));
+        TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.AutoRelativeLayout, defStyleAttr, 0);
+        this.designScreenWidth = a.getDimensionPixelSize(R.styleable.AutoRelativeLayout_designScreenWidth, AutoUtil.getDesignScreenWidth(context));
         this.designScale = calDesignScale();
-        int padding = a.getDimensionPixelSize(R.styleable.AutoFrameLayout_designPadding, 0);
-        int paddingLeft = a.getDimensionPixelSize(R.styleable.AutoFrameLayout_designPaddingLeft, padding);
-        int paddingTop = a.getDimensionPixelSize(R.styleable.AutoFrameLayout_designPaddingTop, padding);
-        int paddingRight = a.getDimensionPixelSize(R.styleable.AutoFrameLayout_designPaddingRight, padding);
-        int paddingBottom = a.getDimensionPixelSize(R.styleable.AutoFrameLayout_designPaddingBottom, padding);
+        int padding = a.getDimensionPixelSize(R.styleable.AutoRelativeLayout_designPadding, 0);
+        int paddingLeft = a.getDimensionPixelSize(R.styleable.AutoRelativeLayout_designPaddingLeft, padding);
+        int paddingTop = a.getDimensionPixelSize(R.styleable.AutoRelativeLayout_designPaddingTop, padding);
+        int paddingRight = a.getDimensionPixelSize(R.styleable.AutoRelativeLayout_designPaddingRight, padding);
+        int paddingBottom = a.getDimensionPixelSize(R.styleable.AutoRelativeLayout_designPaddingBottom, padding);
         a.recycle();
         if (paddingLeft > 0) paddingLeft = calDesignWidth(paddingLeft);
         else paddingLeft = getPaddingLeft();
