@@ -6,7 +6,8 @@ import android.content.res.TypedArray;
 import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.FrameLayout;
+
+import androidx.appcompat.widget.LinearLayoutCompat;
 
 import com.hy.frame.util.AutoUtil;
 import com.hy.frame.widget.ui.R;
@@ -17,7 +18,7 @@ import com.hy.frame.widget.ui.R;
  * time 19-7-10 下午4:24
  * desc 无
  */
-public class AutoFrameLayout extends FrameLayout implements IAutoDesign {
+public class AutoLinearLayoutCompat extends LinearLayoutCompat implements IAutoDesign {
     /**
      * 设计尺寸
      */
@@ -26,33 +27,31 @@ public class AutoFrameLayout extends FrameLayout implements IAutoDesign {
      * 设计比例缩放比例
      */
     private float designScale = 1F;
-    private boolean designScaleChild;
 
-    public AutoFrameLayout(Context context) {
+    public AutoLinearLayoutCompat(Context context) {
         this(context, null);
     }
 
-    public AutoFrameLayout(Context context, AttributeSet attrs) {
+    public AutoLinearLayoutCompat(Context context, AttributeSet attrs) {
         this(context, attrs, 0);
 
     }
 
-    public AutoFrameLayout(Context context, AttributeSet attrs, int defStyleAttr) {
+    public AutoLinearLayoutCompat(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         initAttrs(context, attrs, defStyleAttr);
     }
 
     @SuppressLint("CustomViewStyleable")
     private void initAttrs(Context context, AttributeSet attrs, int defStyleAttr) {
-        TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.AutoFrameLayout, defStyleAttr, 0);
-        this.designScreenWidth = a.getDimensionPixelSize(R.styleable.AutoFrameLayout_designScreenWidth, AutoUtil.getDesignScreenWidth(context));
+        TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.AutoLinearLayout, defStyleAttr, 0);
+        this.designScreenWidth = a.getDimensionPixelSize(R.styleable.AutoLinearLayout_designScreenWidth, AutoUtil.getDesignScreenWidth(context));
         this.designScale = calDesignScale();
-        int padding = a.getDimensionPixelSize(R.styleable.AutoFrameLayout_designPadding, 0);
-        int paddingLeft = a.getDimensionPixelSize(R.styleable.AutoFrameLayout_designPaddingLeft, padding);
-        int paddingTop = a.getDimensionPixelSize(R.styleable.AutoFrameLayout_designPaddingTop, padding);
-        int paddingRight = a.getDimensionPixelSize(R.styleable.AutoFrameLayout_designPaddingRight, padding);
-        int paddingBottom = a.getDimensionPixelSize(R.styleable.AutoFrameLayout_designPaddingBottom, padding);
-        this.designScaleChild = a.getBoolean(R.styleable.AutoFrameLayout_designScaleChild, false);
+        int padding = a.getDimensionPixelSize(R.styleable.AutoLinearLayout_designPadding, 0);
+        int paddingLeft = a.getDimensionPixelSize(R.styleable.AutoLinearLayout_designPaddingLeft, padding);
+        int paddingTop = a.getDimensionPixelSize(R.styleable.AutoLinearLayout_designPaddingTop, padding);
+        int paddingRight = a.getDimensionPixelSize(R.styleable.AutoLinearLayout_designPaddingRight, padding);
+        int paddingBottom = a.getDimensionPixelSize(R.styleable.AutoLinearLayout_designPaddingBottom, padding);
         a.recycle();
         if (paddingLeft > 0) paddingLeft = calDesignWidth(paddingLeft);
         else paddingLeft = getPaddingLeft();
@@ -113,14 +112,5 @@ public class AutoFrameLayout extends FrameLayout implements IAutoDesign {
     @Override
     public int calDesignWidth(int width) {
         return AutoUtil.calDesignWidth(width, getDesignScale());
-    }
-
-    @Override
-    public void onViewAdded(View child) {
-        super.onViewAdded(child);
-        //是否强制缩放子View
-        if (this.designScaleChild) {
-
-        }
     }
 }

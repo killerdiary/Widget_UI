@@ -1,7 +1,7 @@
 # Widget_UI
 常用UI控件集合
 
-[![](https://jitpack.io/v/killerdiary/Widget_UI.svg)](https://jitpack.io/#killerdiary/Widget_UI)
+[![](https://www.jitpack.io/v/com.gitee.kframe/widget_ui.svg)](https://www.jitpack.io/#com.gitee.kframe/widget_ui)
 
 #### 使用方式
 
@@ -19,7 +19,7 @@ allprojects {
 ##### 2. 添加依赖项
 ~~~
 dependencies {
-    implementation 'com.github.killerdiary:Widget_UI:XXX'
+    implementation 'com.gitee.kframe:widget_ui:XXX'
 }
 ~~~
 

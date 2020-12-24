@@ -47,7 +47,6 @@ public class AutoEditText extends QEditText implements IAutoDesign {
         super.initAttrs(context, attrs, defStyleAttr);
     }
 
-
     @Override
     public int getDesignScreenWidth() {
         return this.designScreenWidth;

@@ -1,7 +1,10 @@
 package com.hy.frame.util;
 
+import android.app.Activity;
 import android.content.Context;
+import android.content.res.Resources;
 import android.content.res.TypedArray;
+import android.util.DisplayMetrics;
 
 import com.hy.frame.widget.ui.R;
 
@@ -25,6 +28,7 @@ public final class AutoUtil {
         a.recycle();
         return width;
     }
+
     /**
      * 计算设计比例
      *
@@ -48,5 +52,64 @@ public final class AutoUtil {
     public static int calDesignWidth(int width, float scale) {
         if (scale == 0 || scale == 1) return width;
         return (int) (width * scale + 0.5F);
+    }
+
+    /**
+     * 获取默认 designWidthDP
+     *
+     * @param cxt 上下文
+     * @return int
+     */
+    public static int getDesignWidthDP(Context cxt) {
+        TypedArray a = cxt.getTheme().obtainStyledAttributes(new int[]{R.attr.designWidthDP});
+        int width = a.getInt(0, 0);
+        a.recycle();
+        return width;
+    }
+
+    /**
+     * 开启缩放尺寸
+     *
+     * @param activity Activity
+     * @param enable   是否开启
+     */
+    public static void autoScale(Activity activity, boolean enable) {
+        float designWidth = getDesignWidthDP(activity);
+        autoScale(activity, designWidth, enable);
+    }
+
+    /**
+     * 开启缩放尺寸
+     *
+     * @param activity    Activity
+     * @param designWidth 设计尺寸(单位DP)
+     * @param enable      是否开启
+     */
+    public static void autoScale(Activity activity, float designWidth, boolean enable) {
+        Resources r = null;
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP) {
+            r = activity.getTheme().getResources();
+        } else {
+            r = activity.getResources();
+        }
+        DisplayMetrics original = activity.getApplicationContext().getResources().getDisplayMetrics();
+        int widthPixels = original.widthPixels;
+        int heightPixels = original.heightPixels;
+        DisplayMetrics d = r.getDisplayMetrics();
+        if (enable) {
+            float density = widthPixels * 1f / designWidth;
+            d.density = density; //作用于DP单位
+            d.densityDpi = (int) designWidth;//作用于DP单位
+            d.scaledDensity = density; //作用于文本缩放，SP单位
+            d.xdpi = designWidth * 1f;
+            d.ydpi = heightPixels / density;
+        } else {
+            //这里做一个还原
+            d.density = original.density; //作用于DP单位
+            d.densityDpi = original.densityDpi;//作用于DP单位
+            d.scaledDensity = original.scaledDensity; //作用于文本缩放，SP单位
+            d.xdpi = original.xdpi;
+            d.ydpi = original.ydpi;
+        }
     }
 }

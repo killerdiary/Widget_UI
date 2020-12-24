@@ -52,13 +52,13 @@ public class QEditText extends androidx.appcompat.widget.AppCompatEditText {
         int paddingBottom = a.getDimensionPixelSize(R.styleable.QEditText_designPaddingBottom, padding);
         int textSize = a.getDimensionPixelSize(R.styleable.QEditText_designTextSize, 0);
         this.drawLeftWidth = calDesignSize(a.getDimensionPixelSize(R.styleable.QEditText_designDrawLeftWidth, 0));
-        this.drawLeftHeight = calDesignSize(a.getDimensionPixelSize(R.styleable.QEditText_designDrawLeftHeight, this.drawLeftWidth));
+        this.drawLeftHeight = calDesignSize(a.getDimensionPixelSize(R.styleable.QEditText_designDrawLeftHeight, 0), this.drawLeftWidth);
         this.drawTopWidth = calDesignSize(a.getDimensionPixelSize(R.styleable.QEditText_designDrawTopWidth, 0));
-        this.drawTopHeight = calDesignSize(a.getDimensionPixelSize(R.styleable.QEditText_designDrawTopHeight, this.drawTopWidth));
+        this.drawTopHeight = calDesignSize(a.getDimensionPixelSize(R.styleable.QEditText_designDrawTopHeight, 0), this.drawTopWidth);
         this.drawRightWidth = calDesignSize(a.getDimensionPixelSize(R.styleable.QEditText_designDrawRightWidth, 0));
-        this.drawRightHeight = calDesignSize(a.getDimensionPixelSize(R.styleable.QEditText_designDrawRightHeight, this.drawRightWidth));
+        this.drawRightHeight = calDesignSize(a.getDimensionPixelSize(R.styleable.QEditText_designDrawRightHeight, 0), this.drawRightWidth);
         this.drawBottomWidth = calDesignSize(a.getDimensionPixelSize(R.styleable.QEditText_designDrawBottomWidth, 0));
-        this.drawBottomHeight = calDesignSize(a.getDimensionPixelSize(R.styleable.QEditText_designDrawBottomHeight, this.drawBottomWidth));
+        this.drawBottomHeight = calDesignSize(a.getDimensionPixelSize(R.styleable.QEditText_designDrawBottomHeight, 0), this.drawBottomWidth);
         this.drawPadding = calDesignSize(a.getDimensionPixelSize(R.styleable.QEditText_designDrawPadding, 0));
         this.drawCenter = a.getBoolean(R.styleable.QEditText_designDrawCenter, false);
         a.recycle();
@@ -107,6 +107,19 @@ public class QEditText extends androidx.appcompat.widget.AppCompatEditText {
         super.onDraw(canvas);
     }
 
+    /**
+     * 尺寸转换默认不转换
+     *
+     * @param size 原尺寸
+     * @param def  默认值
+     * @return 转换后的尺寸
+     */
+    public int calDesignSize(int size, int def) {
+        int value = calDesignSize(size);
+        if (value == 0)
+            return def;
+        return value;
+    }
 
     /**
      * 尺寸转换默认不转换

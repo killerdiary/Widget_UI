@@ -144,6 +144,8 @@
 <!--        <attr name="mrgMultiChoice" format="boolean" />-->
 <!--    </declare-styleable>-->
 
+    <attr name="designWidthDP" format="integer" />
+    <attr name="designHeightDP" format="integer" />
     <attr name="designScreenWidth" format="dimension" />
     <attr name="designPadding" format="dimension" />
     <attr name="designPaddingLeft" format="dimension" />
@@ -161,6 +163,7 @@
     <attr name="designDrawBottomHeight" format="dimension" />
     <attr name="designDrawPadding" format="dimension" />
     <attr name="designDrawCenter" format="boolean" />
+    <attr name="designScaleChild" format="boolean" />
 
     <declare-styleable name="IAutoDesign">
         <attr name="designScreenWidth"/>
@@ -189,6 +192,7 @@
         <attr name="designPaddingTop"/>
         <attr name="designPaddingRight"/>
         <attr name="designPaddingBottom"/>
+        <attr name="designScaleChild"/>
     </declare-styleable>
 
     <declare-styleable name="AutoLinearLayout">
@@ -198,6 +202,17 @@
         <attr name="designPaddingTop"/>
         <attr name="designPaddingRight"/>
         <attr name="designPaddingBottom"/>
+        <attr name="designScaleChild"/>
+    </declare-styleable>
+
+    <declare-styleable name="AutoLinearLayoutCompat">
+        <attr name="designScreenWidth"/>
+        <attr name="designPadding"/>
+        <attr name="designPaddingLeft"/>
+        <attr name="designPaddingTop"/>
+        <attr name="designPaddingRight"/>
+        <attr name="designPaddingBottom"/>
+        <attr name="designScaleChild"/>
     </declare-styleable>
 
     <declare-styleable name="AutoRelativeLayout">
@@ -207,6 +222,7 @@
         <attr name="designPaddingTop"/>
         <attr name="designPaddingRight"/>
         <attr name="designPaddingBottom"/>
+        <attr name="designScaleChild"/>
     </declare-styleable>
 
     <declare-styleable name="QTextView">

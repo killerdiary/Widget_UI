@@ -53,13 +53,13 @@ public class QTextView extends androidx.appcompat.widget.AppCompatTextView {
         int paddingBottom = a.getDimensionPixelSize(R.styleable.QTextView_designPaddingBottom, padding);
         int textSize = a.getDimensionPixelSize(R.styleable.QTextView_designTextSize, 0);
         this.drawLeftWidth = calDesignSize(a.getDimensionPixelSize(R.styleable.QTextView_designDrawLeftWidth, 0));
-        this.drawLeftHeight = calDesignSize(a.getDimensionPixelSize(R.styleable.QTextView_designDrawLeftHeight, this.drawLeftWidth));
+        this.drawLeftHeight = calDesignSize(a.getDimensionPixelSize(R.styleable.QTextView_designDrawLeftHeight, 0), this.drawLeftWidth);
         this.drawTopWidth = calDesignSize(a.getDimensionPixelSize(R.styleable.QTextView_designDrawTopWidth, 0));
-        this.drawTopHeight = calDesignSize(a.getDimensionPixelSize(R.styleable.QTextView_designDrawTopHeight, this.drawTopWidth));
+        this.drawTopHeight = calDesignSize(a.getDimensionPixelSize(R.styleable.QTextView_designDrawTopHeight, 0), this.drawTopWidth);
         this.drawRightWidth = calDesignSize(a.getDimensionPixelSize(R.styleable.QTextView_designDrawRightWidth, 0));
-        this.drawRightHeight = calDesignSize(a.getDimensionPixelSize(R.styleable.QTextView_designDrawRightHeight, this.drawRightWidth));
+        this.drawRightHeight = calDesignSize(a.getDimensionPixelSize(R.styleable.QTextView_designDrawRightHeight, 0), this.drawRightWidth);
         this.drawBottomWidth = calDesignSize(a.getDimensionPixelSize(R.styleable.QTextView_designDrawBottomWidth, 0));
-        this.drawBottomHeight = calDesignSize(a.getDimensionPixelSize(R.styleable.QTextView_designDrawBottomHeight, this.drawBottomWidth));
+        this.drawBottomHeight = calDesignSize(a.getDimensionPixelSize(R.styleable.QTextView_designDrawBottomHeight, 0), this.drawBottomWidth);
         this.drawPadding = calDesignSize(a.getDimensionPixelSize(R.styleable.QTextView_designDrawPadding, 0));
         this.drawCenter = a.getBoolean(R.styleable.QTextView_designDrawCenter, false);
         a.recycle();
@@ -106,6 +106,20 @@ public class QTextView extends androidx.appcompat.widget.AppCompatTextView {
             canvas.translate((getMeasuredWidth() - bodyWidth) / 2 - getPaddingLeft(), 0f);
         }
         super.onDraw(canvas);
+    }
+
+    /**
+     * 尺寸转换默认不转换
+     *
+     * @param size 原尺寸
+     * @param def  默认值
+     * @return 转换后的尺寸
+     */
+    public int calDesignSize(int size, int def) {
+        int value = calDesignSize(size);
+        if (value == 0)
+            return def;
+        return value;
     }
 
     /**

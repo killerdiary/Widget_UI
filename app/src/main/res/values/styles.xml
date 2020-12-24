@@ -2,7 +2,7 @@
 
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Base_Theme">
-        <item name="designScreenWidth">1280px</item>
+        <item name="designScreenWidth">@dimen/design_screen_width</item>
     </style>
 
 

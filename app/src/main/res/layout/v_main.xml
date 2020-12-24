@@ -10,9 +10,9 @@
 
 
     <com.hy.frame.widget.AutoFrameLayout
-        android:id="@+id/main_cTest"
+        android:id="@+id/main_cTest1"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         app:designScreenWidth="1280px">
 
         <TextView
@@ -48,16 +48,82 @@
             android:layout_marginLeft="160px"
             android:layout_marginTop="600px"
             android:layout_marginRight="160px"
-            android:gravity="center_vertical"
-         android:drawablePadding="100px"
-            app:designDrawLeftWidth="100px"
-            app:designDrawLeftHeight="100px"
-
+            android:background="@color/translucence"
             android:drawableLeft="@android:drawable/ic_delete"
+            android:drawablePadding="100px"
+            android:gravity="center_vertical"
             android:text="测试"
-            app:designTextSize="48px"
             app:designDrawCenter="true"
-            android:background="@color/translucence" />
+            app:designDrawLeftHeight="100px"
+            app:designDrawLeftWidth="100px"
+            app:designTextSize="48px" />
     </com.hy.frame.widget.AutoFrameLayout>
 
+    <com.hy.frame.widget.AutoFrameLayout
+        android:id="@+id/main_cTest2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/appName" />
+
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@android:drawable/btn_star_big_on" />
+
+        <View
+            android:layout_width="1280dp"
+            android:layout_height="60px"
+            android:background="@color/translucence" />
+
+        <com.hy.frame.widget.AutoRoundImage
+            android:layout_width="228dp"
+            android:layout_height="228dp"
+            android:layout_marginLeft="200dp"
+            android:layout_marginTop="300dp"
+            android:src="@color/black"
+            app:designBorder="6px"
+            app:designBorderColor="@color/red"
+            app:designCircle="true"
+            app:designRadius="60dp" />
+
+        <com.hy.frame.widget.AutoTextView
+            style="@style/Base_BtnStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="160dp"
+            android:layout_marginTop="600dp"
+            android:layout_marginRight="160dp"
+            android:background="@color/translucence"
+            android:drawableLeft="@android:drawable/ic_delete"
+            android:drawablePadding="100dp"
+            android:gravity="center_vertical"
+            android:text="测试"
+            app:designDrawCenter="true"
+            app:designDrawLeftHeight="100dp"
+            app:designDrawLeftWidth="100dp"
+            app:designTextSize="48dp" />
+
+        <com.hy.frame.widget.AutoEditText
+            style="@style/Base_EditStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="160dp"
+            android:layout_marginTop="780dp"
+            android:layout_marginRight="160dp"
+            android:background="@color/translucence"
+            android:drawableLeft="@android:drawable/ic_delete"
+            android:drawablePadding="100dp"
+            android:gravity="center_vertical"
+            android:text="测试"
+            app:designDrawCenter="true"
+
+            app:designDrawLeftWidth="90dp"
+            app:designDrawLeftHeight="90dp"
+            app:designTextSize="48dp" />
+    </com.hy.frame.widget.AutoFrameLayout>
 </LinearLayout>
